@@ -11,6 +11,80 @@
 </head>
 
 <body>
+    <nav class="uk-flex uk-navbar uk-width-1-1">
+        <div class="uk-navbar-center">
+            <h1 class="uk-text-bold">Weather Dashboard</h1>
+        </div>
+    </nav>
+
+    <section class="uk-flex">
+        <div id="search" class="uk-flex-left">
+            <form class="uk-search uk-search-default uk-flex-left">
+                <label for="city" class="uk-form-label">Search for a City:</label>
+                <span uk-search-icon></span>
+                <input type="search" placeholder="City Name" name="city" id="city" class="uk-search-input" />
+                <button type="submit" class="uk-button uk-button-text">Search</button>
+            </form>
+            <hr>
+            <div id="previous-searches">
+
+            </div>
+        </div>
+
+        <div id="results" class="uk-flex-right">
+            <div id="current">
+                <div class="uk-flex-inline">
+                    <h2 id="city-name">City Name (<span id="date"></span>)</h2>
+                    <i id="weather-icon"></i>
+                </div>
+                <p>Temp: <span id="temperature"></span></p>
+                <p>Wind: <span id="wind"></span></p>
+                <p>Humidity: <span id="humidity"></span></p>
+                <p>UV Index: <span id="uv-index"></span></p>
+            </div>
+
+            <div id="future">
+                <h2>5-Day Forecast:</h2>
+                <div id="forecast" class="uk-flex uk-flex-between">
+                    <div class="uk-card uk-card-secondary uk-card-hover uk-card-body uk-card-large">
+                        <h2 id="date-1"></h2>
+                        <i id="weather-icon-1"></i>
+                        <p>Temp: <span id="temperature-1"></span></p>
+                        <p>Wind: <span id="wind-1"></span></p>
+                        <p>Humidity: <span id="humidity-1"></span></p>
+                    </div>
+                    <div class="uk-card uk-card-secondary uk-card-hover uk-card-body uk-card-large">
+                        <h2 id="date-2"></h2>
+                        <i id="weather-icon-2"></i>
+                        <p>Temp: <span id="temperature-2"></span></p>
+                        <p>Wind: <span id="wind-2"></span></p>
+                        <p>Humidity: <span id="humidity-2"></span></p>
+                    </div>
+                    <div class="uk-card uk-card-secondary uk-card-hover uk-card-body uk-card-large">
+                        <h2 id="date-3"></h2>
+                        <i id="weather-icon-3"></i>
+                        <p>Temp: <span id="temperature-3"></span></p>
+                        <p>Wind: <span id="wind-3"></span></p>
+                        <p>Humidity: <span id="humidity-3"></span></p>
+                    </div>
+                    <div class="uk-card uk-card-secondary uk-card-hover uk-card-body uk-card-large">
+                        <h2 id="date-4"></h2>
+                        <i id="weather-icon-4"></i>
+                        <p>Temp: <span id="temperature-4"></span></p>
+                        <p>Wind: <span id="wind-4"></span></p>
+                        <p>Humidity: <span id="humidity-4"></span></p>
+                    </div>
+                    <div class="uk-card uk-card-secondary uk-card-hover uk-card-body uk-card-large">
+                        <h2 id="date-5"></h2>
+                        <i id="weather-icon-5"></i>
+                        <p>Temp: <span id="temperature-5"></span></p>
+                        <p>Wind: <span id="wind-5"></span></p>
+                        <p>Humidity: <span id="humidity-5"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script src="./assets/js/script.js"></script>
 </body>
