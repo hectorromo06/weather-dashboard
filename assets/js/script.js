@@ -85,10 +85,13 @@ function forecast(lat, lon) {
             UVindEl.textContent = data.current.uvi;
 
             if (data.current.uvi <= 2) {
+                UVindEl.className = '';
                 UVindEl.classList.add('success')
             } else if (data.current.uvi > 2 && data.current.uvi <= 7) {
+                UVindEl.className = '';
                 UVindEl.classList.add('warning')
             } else if (data.current.uvi > 7 && data.current.uvi <= 11) {
+                UVindEl.className = '';
                 UVindEl.classList.add('danger')
             }
 
