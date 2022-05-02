@@ -20,7 +20,7 @@ $('#clear').click(function () {
 });
 
 function getApi(city) {
-    var requestUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + city + '&appid=' + apiKey;
+    var requestUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + city + '&appid=' + apiKey;
 
     cityNameEl.innerHTML = city + ' ' + '(<span id="date"></span>)';
     $('#date').text(moment().format("L"));
