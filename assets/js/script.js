@@ -10,6 +10,13 @@ $('#submit-btn').click(function (event) {
     if (cityName != "") {
         getApi(cityName);
     }
+
+    addButtons();
+});
+
+$('#clear').click(function () {
+    localStorage.clear();
+    location.reload();
 });
 
 function getApi(city) {
@@ -53,7 +60,6 @@ function getApi(city) {
         })
         .then(function (data) {
             forecast((data[0].lat), (data[0].lon));
-            //fiveDay((data[0].lat), (data[0].lon));
         });
 }
 
@@ -114,6 +120,45 @@ function forecast(lat, lon) {
         })
 }
 
+function addButtons() {
+    var history = document.querySelector('#previous-searches');
+
+    var temp = localStorage.getItem('citiesSearched');
+    citiesSearched = JSON.parse(temp);
+
+
+    for (var i = history.children.length; i < citiesSearched.length; i++) {
+
+        var btnEl = document.createElement("button");
+        btnEl.setAttribute("id", "history-" + i);
+        btnEl.classList.add("uk-button", "uk-button-primary")
+        btnEl.textContent = citiesSearched[i].cityName;
+        history.appendChild(btnEl);
+    }
+
+    // event listener for buttons
+    const btns = document.querySelectorAll('button[id^=history-]')
+
+    btns.forEach(btn => {
+
+        btn.addEventListener('click', event => {
+            var city = event.target.textContent;
+            console.log("🚀 ~ file: script.js ~ line 138 ~ addButtons ~ elID", city)
+            getApi(city);
+        });
+
+    });
+}
+
+function history() {
+    var temp = localStorage.getItem('citiesSearched');
+
+    // if localStorage does exist print buttons
+    if (temp != null) {
+        addButtons();
+    }
+}
+
 // media query
 $(window).resize(function () {
     if ($(window).width() <= 768) {
@@ -130,3 +175,5 @@ $(window).resize(function () {
         }
     }
 });
+
+history();

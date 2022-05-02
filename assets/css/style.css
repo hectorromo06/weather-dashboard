@@ -13,11 +13,17 @@ nav div h1 {
 }
 
 #search {
+    width: 20%;
     margin: 2% 0 2% 2%;
 }
 
 #search form label {
     font-size: x-large;
+}
+
+#search button {
+    margin: 2%;
+    width: 100%;
 }
 
 #results {
@@ -53,6 +59,11 @@ nav div h1 {
 
 #forecast div {
     padding: 2%;
+}
+
+#previous-searches button {
+    width: 100%;
+    margin: 2%;
 }
 
 .success {
