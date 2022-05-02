@@ -92,7 +92,7 @@ function forecast(lat, lon) {
                 UVindEl.classList.add('danger')
             }
 
-            iconEl.src = 'http://openweathermap.org/img/w/' + data.current.weather[0].icon + '.png'
+            iconEl.src = 'https://openweathermap.org/img/w/' + data.current.weather[0].icon + '.png'
 
             // future conditoins
             for (var i = 0; i < 5; i++) {
@@ -106,7 +106,7 @@ function forecast(lat, lon) {
 
                 // sets icons for 5 day
                 var icon = data.daily[i].weather[0].icon;
-                weatherEl.src = 'http://openweathermap.org/img/w/' + icon + '.png';
+                weatherEl.src = 'https://openweathermap.org/img/w/' + icon + '.png';
 
                 // sets temperature for 5 day
                 temperatureEl.textContent = data.daily[i].temp.day;
@@ -143,7 +143,6 @@ function addButtons() {
 
         btn.addEventListener('click', event => {
             var city = event.target.textContent;
-            console.log("🚀 ~ file: script.js ~ line 138 ~ addButtons ~ elID", city)
             getApi(city);
         });
 
