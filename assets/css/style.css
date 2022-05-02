@@ -1,0 +1,88 @@
+nav {
+    background-image: linear-gradient(to right, rgb(0, 93, 244) , rgb(0, 0, 149));
+    margin: 0 auto;
+}
+
+nav div h1 {
+    margin-bottom: 0px;
+    color: white;
+}
+
+#divider {
+    margin: 1% 2%;
+}
+
+#search {
+    width: 20%;
+    margin: 2% 0 2% 2%;
+}
+
+#search form label {
+    font-size: x-large;
+}
+
+#search button {
+    margin: 2%;
+    width: 100%;
+}
+
+#results {
+    margin: 2% auto;
+    width: 100%;
+    margin-right: 2%;
+    border-left: 1px solid rgb(224, 224, 224);
+    margin-left: 2%;
+    padding-left: 2%;
+}
+
+#results h2 {
+    margin: 0;
+}
+
+#current {
+    border: 2px solid black;
+    text-align: left;
+    padding: 2%;
+}
+
+#future h2 {
+    text-align: left;
+}
+
+#forecast {
+    width: 100%;
+}
+
+#forcast h4 {
+    size: 24px;
+}
+
+#forecast div {
+    padding: 2%;
+}
+
+#previous-searches button {
+    width: 100%;
+    margin: 2%;
+}
+
+.success {
+    background-color: green;
+    color: white;
+    padding: 1% 2%;
+    border-radius: 15px;
+}
+
+.warning {
+    background-color: yellow;
+    color: white;
+    padding: 1% 2%;
+    border-radius: 15px;
+}
+
+.danger {
+    background-color: red;
+    color: white;
+    padding: 1% 2%;
+    border-radius: 15px;
+}

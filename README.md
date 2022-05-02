@@ -13,7 +13,7 @@ Check the weather outlook for multiple cities
 https://hectorromo06.github.io/weather-dashboard/
 
 ## Image of Web App
-![image]()
+![image](./assets/images/screenshot.png)
 
 ## Author 
 - Hector Romo
