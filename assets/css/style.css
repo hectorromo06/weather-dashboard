@@ -29,6 +29,10 @@ nav div h1 {
     padding-left: 2%;
 }
 
+#results h2 {
+    margin: 0;
+}
+
 #current {
     border: 2px solid black;
     text-align: left;
@@ -41,6 +45,14 @@ nav div h1 {
 
 #forecast {
     width: 100%;
+}
+
+#forcast h4 {
+    size: 24px;
+}
+
+#forecast div {
+    padding: 2%;
 }
 
 .success {
