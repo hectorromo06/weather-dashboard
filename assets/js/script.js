@@ -1,10 +1,5 @@
 var apiKey = '19dc82681f3d9f94a404d90b4c15201e';
 var cityNameEl = document.querySelector('#city-name');
-var iconEl = document.querySelector('#weather-icon');
-var temperatureEl = document.querySelector('#temperature');
-var windEl = document.querySelector('#wind');
-var humidityEl = document.querySelector('#humidity');
-var UVindEl = document.querySelector('#uv-index');
 var citiesSearched = [];
 
 // event listener for submit button
@@ -58,13 +53,13 @@ function getApi(city) {
         })
         .then(function (data) {
             forecast((data[0].lat), (data[0].lon));
-            fiveDay((data[0].lat), (data[0].lon));
+            //fiveDay((data[0].lat), (data[0].lon));
         });
 }
 
 // API call for current conditions
 function forecast(lat, lon) {
-    var apiCall = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=' + apiKey + '&units=imperial&exclude=hourly,daily,minutely';
+    var apiCall = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=' + apiKey + '&units=imperial&exclude=hourly,minutely';
 
     fetch(apiCall)
         .then(function (response) {
@@ -72,6 +67,12 @@ function forecast(lat, lon) {
         })
         .then(function (data) {
             // display current values
+            var iconEl = document.querySelector('#weather-icon');
+            var temperatureEl = document.querySelector('#temperature');
+            var windEl = document.querySelector('#wind');
+            var humidityEl = document.querySelector('#humidity');
+            var UVindEl = document.querySelector('#uv-index');
+
             temperatureEl.textContent = data.current.temp;
             windEl.textContent = data.current.wind_speed;
             humidityEl.textContent = data.current.humidity;
@@ -86,18 +87,46 @@ function forecast(lat, lon) {
             }
 
             iconEl.src = 'http://openweathermap.org/img/w/' + data.current.weather[0].icon + '.png'
+
+            // future conditoins
+            for (var i = 0; i < 5; i++) {
+
+                $('#date-' + i).text(moment().add(i + 1, 'days').format("L"));
+
+                var weatherEl = document.querySelector('#weather-icon-' + i);
+                var temperatureEl = document.querySelector('#temperature-' + i);
+                var windEl = document.querySelector('#wind-' + i);
+                var humidityEl = document.querySelector('#humidity-' + i);
+
+                // sets icons for 5 day
+                var icon = data.daily[i].weather[0].icon;
+                weatherEl.src = 'http://openweathermap.org/img/w/' + icon + '.png';
+
+                // sets temperature for 5 day
+                temperatureEl.textContent = data.daily[i].temp.day;
+
+                // sets wind speed for 5 day
+                windEl.textContent = data.daily[i].wind_speed;
+
+                // sets humidity for 5 day
+                humidityEl.textContent = data.daily[i].humidity
+            }
         })
 }
 
-// API call for future conditions
-function fiveDay(lat, lon) {
-    var apiCall = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=' + apiKey + '&units=imperial&cnt=5';
-
-    fetch(apiCall)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log("🚀 ~ file: script.js ~ line 74 ~ data", data);
-        })
-}
+// media query
+$(window).resize(function () {
+    if ($(window).width() <= 768) {
+        var element = document.querySelector("#forecast");
+        if (element != null) {
+            element.classList.remove("uk-flex-row");
+            element.classList.add("uk-flex-column");
+        }
+    } else if ($(window).width() > 768) {
+        var element = document.querySelector("#forecast");
+        if (element != null) {
+            element.classList.remove("uk-flex-column");
+            element.classList.add("uk-flex-row");
+        }
+    }
+});
