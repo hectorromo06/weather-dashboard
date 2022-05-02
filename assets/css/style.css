@@ -42,3 +42,10 @@ nav div h1 {
 #forecast {
     width: 100%;
 }
+
+.success {
+    background-color: green;
+    color: white;
+    padding: 1% 2%;
+    border-radius: 15px;
+}
