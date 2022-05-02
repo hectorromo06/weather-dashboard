@@ -80,9 +80,9 @@ function forecast(lat, lon) {
             if (data.current.uvi <= 2) {
                 UVindEl.classList.add('success')
             } else if (data.current.uvi > 2 && data.current.uvi <= 7) {
-                UVindEl.classList.add('uk-text-warning')
+                UVindEl.classList.add('warning')
             } else if (data.current.uvi > 7 && data.current.uvi <= 11) {
-                UVindEl.classList.add('uk-text-danger')
+                UVindEl.classList.add('danger')
             }
 
             iconEl.src = 'http://openweathermap.org/img/w/' + data.current.weather[0].icon + '.png'
