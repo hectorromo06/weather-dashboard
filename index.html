@@ -18,16 +18,17 @@
     </nav>
 
     <section class="uk-flex">
-        <div id="search" class="uk-flex-left">
+        <div id="search" class="uk-flex-left uk-animation-toggle" tabindex="0">
             <form class="uk-search uk-search-default uk-flex-left">
                 <label for="city" class="uk-form-label">Search for a City:</label>
                 <input type="search" placeholder="City Name" name="city" id="city" class="uk-search-input" />
                 <button id="submit-btn" type="submit" class="uk-button uk-button-text">Search</button>
             </form>
             <hr>
-            <div id="previous-searches">
+            <div id="previous-searches" class="uk-flex-column">
 
             </div>
+            <button id="clear" class="uk-button uk-button-default uk-animation-shake">Clear Searches</button>
         </div>
 
         <div id="results" class="uk-flex-right">
